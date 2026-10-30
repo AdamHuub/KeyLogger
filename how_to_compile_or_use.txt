@@ -1,0 +1,21 @@
+
+
+compilation of Peripheral Detector:
+ gcc DeviceManager2.c -o DeviceManager.exe -lsetupapi -lcfgmgr32
+run:
+./DeviceManager.exe
+
+compilation of keylogger :
+gcc keylogger.c -o keylogger.exe -luser32
+run 
+./keylogger.exe
+
+compile sender 
+gcc sender.c -o sender.exe -lws2_32 
+run
+.\sender.exe 127.0.0.1 log.txt    
+
+compilation of reciever 
+ gcc receiver.c -o receiver.exe -lws2_32   
+run
+./receiver.exe          

@@ -1,7 +1,0 @@
-[CTRL]
- on receiver.c - projetSE - Visual Studio Code
-  21:35:57.347 [C]
-[CTRL]
- 21:35:59.939 [C]
-[CTRL]
- 21:36:02.208 [C]
